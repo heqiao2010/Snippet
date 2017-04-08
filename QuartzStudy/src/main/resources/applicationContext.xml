@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+		<!-- Timer schedule -->
+
+	<!--要调度的对象-->
+	<bean id="jobBean" class="net.xsbiz.common.MakeHtml" />
+	<bean id="jobDetail" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject" ref="jobBean" />
+		<property name="targetMethod" value="execute" /><!-- 执行"jobBean"中的execute方法 -->
+		<!--将并发设置为false-->
+		<property name="concurrent" value="false" />
+	</bean>
+
+	<bean id="trigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean"><!-- 定义 Job 何时执行 -->
+ 		<property name="jobDetail" ref="jobDetail" />
+        <!--表达式，我的是每 30 执行一次-->
+        <property name="cronExpression" value="0/3 * * * * ?" /><!-- “ 0 0 12 * * ? ”会在每天中午 12 点触发 执行；“ 0 15 10 ? * 6L ”会在每个月的最后一个星期五的早上 10:15 触发 Job 执行 -->
+	</bean>
+
+	<!--  总管理类如果将lazy-init='false'那么容器启动就会执行调度程序   -->
+	<bean id="startQuertz" class="org.springframework.scheduling.quartz.SchedulerFactoryBean" lazy-init="false" >
+ 		<property name="triggers">
+ 			<list>
+ 				<!--作业调度器,list下可加入其他的调度器-->
+				<ref bean="trigger" />
+ 			</list>
+		</property>
+	</bean>
+	
+
+</beans>
