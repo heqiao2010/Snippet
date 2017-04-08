@@ -36,4 +36,11 @@ public class QuartzTestBean implements InitializingBean, Serializable {
 			log.warn(null, se);
 		}
 	}
+	
+	/**
+	 * 執行任務
+	 */
+	public void execute(){
+		log.info("I'am executing a task...");
+	}
 }

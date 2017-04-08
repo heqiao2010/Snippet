@@ -4,7 +4,25 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
     http://www.springframework.org/schema/beans/spring-beans-3.2.xsd">
 
-	<bean id="quartzTestBean" class="test.quartz.QuartzTestBean">
+	<bean id="quartzTestBean" class="test.quartz.QuartzTestBean"/>
+	
+	<bean id="jobDetail" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject" ref="quartzTestBean" />
+		<property name="targetMethod" value="execute" />
+		<property name="concurrent" value="false" />
+	</bean>
+
+	<bean id="trigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+ 		<property name="jobDetail" ref="jobDetail" />
+        <property name="cronExpression" value="0/3 * * * * ?" />
+	</bean>
+
+	<bean id="startQuertz" class="org.springframework.scheduling.quartz.SchedulerFactoryBean" lazy-init="false" >
+ 		<property name="triggers">
+ 			<list>
+				<ref bean="trigger" />
+ 			</list>
+		</property>
 	</bean>
 
 </beans>
