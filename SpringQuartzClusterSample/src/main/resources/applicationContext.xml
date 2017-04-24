@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="firstJobDetail" class="org.springframework.scheduling.quartz.JobDetailFactoryBean">
+		<property name="jobClass" value="com.yunzero.SimpleJob"/>
+		<property name="durability" value="true" />	
+		<property name="requestsRecovery" value="true" />
+	</bean>
+	
+	<bean id="firstTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+		<property name="jobDetail" ref="firstJobDetail" />
+		<property name="cronExpression" value="0/5 * * ? * * *" />
+	</bean>
+	
+	<bean name="quartzScheduler"
+		class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+		<property name="configLocation" value="classpath:quartz.properties" />
+		<property name="jobDetails">
+			<list>
+				<ref bean="firstJobDetail"/>
+			</list>
+		</property>
+		<property name="triggers">
+			<list>
+				<ref bean="firstTrigger"/>
+			</list>
+		</property>
+	</bean>	
+
+</beans>
