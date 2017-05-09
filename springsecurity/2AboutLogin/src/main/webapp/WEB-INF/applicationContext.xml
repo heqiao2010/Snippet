@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:security="http://www.springframework.org/schema/security"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+    http://www.springframework.org/schema/security
+    http://www.springframework.org/schema/security/spring-security-3.2.xsd">
+
+	<bean id="propertyConfigurer"
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations">
+			<list>
+				<value>/WEB-INF/db.properties</value>
+			</list>
+		</property>
+	</bean>
+
+	<!-- 登录页面不过滤 -->
+	<security:http pattern="/myLogin.jsp*" security="none" />
+	<security:http pattern="/login*.jsp*" security="none" />
+
+	<security:http auto-config="true" access-denied-page="/accessDenied.jsp">
+		<!-- 指定登录页面 -->
+		<security:form-login login-page="/myLogin.jsp"
+	         login-processing-url="/j_spring_security_check" 
+	         username-parameter="j_username"
+	         password-parameter="j_password"
+	         default-target-url="/index.jsp"
+	         always-use-default-target="true" 
+	         authentication-success-handler-ref="authSucessHandler"
+	         authentication-failure-url="/myLogin.jsp"
+	         authentication-failure-handler-ref="authFailedHandler"/> 
+		<!-- 拦截URL -->
+		<security:intercept-url pattern="/admin.jsp*"
+			access="ROLE_ADMIN" />
+		<security:intercept-url pattern="/**"
+			access="ROLE_USER,ROLE_ADMIN" />
+	</security:http>
+	
+	<!-- 登录成功后的处理 -->
+	<bean id="authSucessHandler" class="heqiao2010.com.security.AuthenticationSuccessHandlerImpl"></bean>	
+	
+	<!-- 登录失败后的处理 -->
+	<bean id="authFailedHandler" class="heqiao2010.com.security.AuthenticationFailureHandlerImpl"></bean>	
+	
+	<!-- 配置认证管理器 -->
+	<security:authentication-manager>
+		<security:authentication-provider>
+			<security:password-encoder hash="md5"></security:password-encoder>
+			<security:jdbc-user-service data-source-ref="datasource"
+			users-by-username-query="select username,password,status as enabled
+                                         from user
+                                        where username=?"
+            authorities-by-username-query="select u.username, r.name as authority, u.password
+                                             from user u
+                                             join user_role ur
+                                               on u.id=ur.user_id
+                                             join role r
+                                               on r.id=ur.role_id
+                                            where u.username=?"
+           	/>
+			<!-- 
+			<security:user-service>
+				<security:user name="user" authorities="ROLE_USER"
+					password="ee11cbb19052e40b07aac0ca060c23ee" />
+				<security:user name="admin" authorities="ROLE_ADMIN"
+					password="21232f297a57a5a743894a0e4a801fc3" />
+			</security:user-service>
+			-->
+		</security:authentication-provider>
+	</security:authentication-manager>
+	
+	<!-- 数据源 -->
+	<bean id="datasource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
+		<property name="url"
+			value="${db.url}" />
+		<property name="username" value="${db.username}"></property>
+		<property name="password" value="${db.password}"></property>
+	</bean>
+	
+</beans>
