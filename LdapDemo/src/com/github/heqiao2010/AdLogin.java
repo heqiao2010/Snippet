@@ -9,10 +9,10 @@ import javax.naming.directory.InitialDirContext;
 
 public class AdLogin {
 	public static void main(String[] args) {
-		String userName = "XXX";// AD域认证，用户的登录UserName
-		String password = "XXX";// AD域认证，用户的登录PassWord
-		String host = "XXX";// AD域IP，必须填写正确
-		String domain = "XXX";// 域名后缀，例.@noker.cn.com
+		String userName = "h12111";// AD域认证，用户的登录UserName
+		String password = "He13789032171+";// AD域认证，用户的登录PassWord
+		String host = "h3c.huawei-3com.com";// AD域IP，必须填写正确
+		String domain = "@h3c.huawei-3com.com";// 域名后缀，例.@noker.cn.com
 		String port = "389"; // 端口，一般默认389
 		String url = new String("ldap://" + host + ":" + port);// 固定写法
 		String user = userName.indexOf(domain) > 0 ? userName : userName + domain;// 网上有别的方法，但是在我这儿都不好使，建议这么使用
@@ -25,6 +25,7 @@ public class AdLogin {
 		env.put(Context.PROVIDER_URL, url);// Url
 		try {
 			ctx = new InitialDirContext(env);// 初始化上下文
+//			ctx.lookup(userName);
 			System.out.println("身份验证成功!");
 		} catch (AuthenticationException e) {
 			System.out.println("身份验证失败!");

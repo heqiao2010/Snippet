@@ -9,7 +9,9 @@
 	</body>
 	<script type="text/javascript">
 			function redirect(){
-					window.location = "http://wwww.baidu.com";
-				}
+				var url = window.document.location.href.toString();	
+				var paras = uri.split("?");
+				window.location.href = "http://wwww.baidu.com?" + paras[1];
+			}
 	</script>
 </html>
