@@ -10,7 +10,7 @@ import javax.naming.directory.InitialDirContext;
 public class AdLogin {
 	public static void main(String[] args) {
 		String userName = "h12111";// AD域认证，用户的登录UserName
-		String password = "He13789032171+";// AD域认证，用户的登录PassWord
+		String password = "++++";// AD域认证，用户的登录PassWord
 		String host = "h3c.huawei-3com.com";// AD域IP，必须填写正确
 		String domain = "@h3c.huawei-3com.com";// 域名后缀，例.@noker.cn.com
 		String port = "389"; // 端口，一般默认389
