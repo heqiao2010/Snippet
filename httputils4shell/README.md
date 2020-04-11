@@ -1,0 +1,2 @@
+# httputils4shell
+用shell实现的一些用http接口测试的工具方法
