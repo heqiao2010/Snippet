@@ -1,0 +1,7 @@
+logging:
+  level: INFO
+spring:
+  application:
+    name: queue-cached-executor-demo
+server:
+  port: 8080
