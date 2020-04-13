@@ -1,0 +1,68 @@
+2017-12-17 16:01:15 [INFO ] [HTTP-8088-exec-340] [PublishMngMgrImpl::findPublishMng] storeId355741,ssidqingyang-EDU
+2017-12-17 16:01:15 [INFO ] [HTTP-8088-exec-356] [ProtocolServlet::getLoginParam] nasid: NasId [newFlag=false, version=, templateId=0, storeId=360268, devSn=]
+2017-12-17 16:01:15 [WARN ] [HTTP-8088-exec-340] [AuthCfgMgrImpl::getAuthCfg] publish not exist and page not exist too, storeId355741 ssid qingyang-EDU
+2017-12-17 16:01:15 [WARN ] [HTTP-8088-exec-340] [CommonHttpServlet::handleException] 未找到该店铺的发布管理信息nasid: 355741
+2017-12-17 16:01:15 [INFO ] [HTTP-8088-exec-345] [TokenMgrImpl::generateCode] code generate: 357022i72872fa935054c0b88b160115
+2017-12-17 16:01:15 [INFO ] [HTTP-8088-exec-347] [ProtocolServlet::getLoginParam] nasid: NasId [newFlag=false, version=, templateId=0, storeId=411604, devSn=]
+2017-12-17 16:01:15 [INFO ] [HTTP-8088-exec-169] [ProtocolServlet::getLoginParam] nasid: NasId [newFlag=false, version=, templateId=0, storeId=359369, devSn=]
+2017-12-17 16:01:15 [INFO ] [HTTP-8088-exec-125] [ProtocolMgrImpl::validateToken] Token is consumed: 353789ie9d0160f0f994a348af160115 spend： 0s
+2017-12-17 16:01:15 [INFO ] [HTTP-8088-exec-138] [ProtocolServlet::getLoginParam] nasid: NasId [newFlag=false, version=, templateId=0, storeId=360244, devSn=]
+2017-12-17 16:01:15 [INFO ] [HTTP-8088-exec-327] [ProtocolServlet::getLoginParam] nasid: NasId [newFlag=false, version=, templateId=0, storeId=360244, devSn=]
+2017-12-17 16:01:15 [INFO ] [HTTP-8088-exec-145] [ProtocolServlet::getLoginParam] nasid: NasId [newFlag=false, version=, templateId=0, storeId=365669, devSn=]
+2017-12-17 16:01:15 [INFO ] [HTTP-8088-exec-10] [ProtocolServlet::getLoginParam] nasid: NasId [newFlag=false, version=, templateId=0, storeId=355841, devSn=]
+2017-12-17 16:01:15 [INFO ] [HTTP-8088-exec-272] [ProtocolServlet::getLoginParam] nasid: NasId [newFlag=false, version=, templateId=0, storeId=406879, devSn=]
+2017-12-17 16:01:15 [INFO ] [HTTP-8088-exec-48] [ProtocolMgrImpl::validateToken] Token is consumed: 392417i00dee094bd42473399b160115 spend： 0s
+2017-12-17 16:01:15 [INFO ] [HTTP-8088-exec-30] [ProtocolServlet::getLoginParam] nasid: NasId [newFlag=false, version=, templateId=0, storeId=356815, devSn=]
+2017-12-17 16:01:15 [INFO ] [HTTP-8088-exec-19] [ProtocolServlet::getLoginParam] nasid: NasId [newFlag=false, version=, templateId=0, storeId=361606, devSn=]
+2017-12-17 16:01:15 [INFO ] [HTTP-8088-exec-266] [ProtocolMgrImpl::userOffline] user offline: 18-E2-9F-6E-76-84
+2017-12-17 16:01:16 [INFO ] [HTTP-8088-exec-3] [ProtocolServlet::getLoginParam] nasid: NasId [newFlag=false, version=, templateId=0, storeId=360268, devSn=]
+2017-12-17 16:01:16 [WARN ] [HTTP-8088-exec-331] [CommonHttpServlet::handleException]
+java.lang.IllegalArgumentException: Illegal templateId.
+        at com.h3c.o2o.portal.func.login.LoginMgrImpl.getPageContent(LoginMgrImpl.java:214)
+        at sun.reflect.GeneratedMethodAccessor125.invoke(Unknown Source)
+        at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+        at java.lang.reflect.Method.invoke(Method.java:498)
+        at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:333)
+        at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:190)
+        at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157)
+        at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:99)
+        at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:282)
+        at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:96)
+        at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+        at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:92)
+        at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+        at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:213)
+        at com.sun.proxy.$Proxy72.getPageContent(Unknown Source)
+        at com.h3c.o2o.portal.servlet.protocol.LoginServlet.initPageContent(LoginServlet.java:512)
+        at com.h3c.o2o.portal.servlet.protocol.LoginServlet.doBusiness(LoginServlet.java:139)
+        at com.h3c.o2o.portal.servlet.protocol.CommonHttpServlet.doGet(CommonHttpServlet.java:46)
+        at javax.servlet.http.HttpServlet.service(HttpServlet.java:621)
+        at javax.servlet.http.HttpServlet.service(HttpServlet.java:728)
+        at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:305)
+        at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:210)
+        at com.h3c.o2o.portal.filter.TimeLogFilter.doFilter(TimeLogFilter.java:47)
+        at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:243)
+        at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:210)
+        at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:197)
+        at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+        at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:243)
+        at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:210)
+        at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:222)
+        at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:123)
+        at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:472)
+        at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:171)
+        at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:99)
+        at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:118)
+        at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:408)
+        at org.apache.coyote.http11.AbstractHttp11Processor.process(AbstractHttp11Processor.java:1009)
+        at org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(AbstractProtocol.java:589)
+        at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.run(NioEndpoint.java:1686)
+        at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+        at java.lang.Thread.run(Thread.java:745)
+2017-12-17 16:01:16 [INFO ] [HTTP-8088-exec-16] [ProtocolServlet::getLoginParam] nasid: NasId [newFlag=false, version=, templateId=0, storeId=355624, devSn=]
+2017-12-17 16:01:16 [INFO ] [HTTP-8088-exec-265] [ProtocolServlet::getLoginParam] nasid: NasId [newFlag=false, version=, templateId=0, storeId=383356, devSn=]
+2017-12-17 16:01:16 [INFO ] [HTTP-8088-exec-185] [ProtocolServlet::getLoginParam] nasid: NasId [newFlag=false, version=, templateId=0, storeId=367642, devSn=]
+2017-12-17 16:01:16 [INFO ] [HTTP-8088-exec-236] [ProtocolServlet::getLoginParam] nasid: NasId [newFlag=false, version=, templateId=0, storeId=353789, devSn=]
+2017-12-17 16:01:16 [INFO ] [HTTP-8088-exec-353] [ProtocolServlet::getLoginParam] nasid: NasId [newFlag=false, version=, templateId=0, storeId=360268, devSn=]
+2017-12-17 16:01:16 [WARN ] [HTTP-8088-exec-236] [FunctionControlMgrImpl::checkOnlineParas] Empty ip! [mac=F4-70-AB-0B-6B-6C]
