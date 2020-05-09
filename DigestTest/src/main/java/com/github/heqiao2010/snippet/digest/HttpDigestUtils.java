@@ -1,4 +1,4 @@
-package com.github.heqiao2010;
+package com.github.heqiao2010.snippet.digest;
 
 import java.net.URI;
 import java.util.Collections;
