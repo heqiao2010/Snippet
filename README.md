@@ -15,3 +15,5 @@ Just some demos or snippets.
 # [DigestTest](https://github.com/heqiao2010/Snippet/tree/master/DigestTest)
 摘要认证demo
 
+# [LdapDemo](https://github.com/heqiao2010/Snippet/tree/master/LdapDemo)
+LDAP认证demo
